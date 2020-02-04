@@ -1,0 +1,8 @@
+<suite name="Funcionalidades do App AdvantageOnlineShopping">
+	<test name="Funcionalidade Cadastro">
+		<classes>
+			<class
+				name="br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro" />
+		</classes>
+	</test>
+</suite>

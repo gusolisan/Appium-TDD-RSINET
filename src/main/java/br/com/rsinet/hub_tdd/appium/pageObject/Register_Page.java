@@ -1,8 +1,6 @@
 package br.com.rsinet.hub_tdd.appium.pageObject;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -60,10 +58,10 @@ public class Register_Page {
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.TextView[2]");
 	}
 
-	private WebElement paisDesejado() {
+	private WebElement paisDesejado(String nomeDoPais) {
 		return driver.findElementByAndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-						+ "Brazil" + "\").instance(0))");
+						+ nomeDoPais + "\").instance(0))");
 	}
 
 	private WebElement estado() {
@@ -87,11 +85,13 @@ public class Register_Page {
 	}
 
 	private WebElement botaoTermos() {
-		return driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.CheckBox[2]");
+		return driver.findElementByXPath(
+				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.CheckBox[2]");
 	}
 
 	private WebElement botaoRegistrarCadastro() {
-		return driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button");
+		return driver.findElementByXPath(
+				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button");
 	}
 
 //	ações dos elementos:
@@ -129,22 +129,21 @@ public class Register_Page {
 		action.press(PointOption.point(860, 1400)).moveTo(PointOption.point(814, 400)).release().perform();
 	}
 
-	public void selecionaPais() {
+	public void selecionaPais(String nomeDoPais) {
 		pais().click();
 
-		boolean naoAchouPais = true;
-		while (naoAchouPais) {
+		boolean achouPais = false;
+
+		while (achouPais == false) {
 			try {
-				paisDesejado().click();
-				naoAchouPais = true;
+				paisDesejado(nomeDoPais).click();
+				achouPais = true;
 				break;
 			} catch (Exception e) {
 				(new TouchAction(driver)).press(PointOption.point(677, 1139)).moveTo(PointOption.point(693, 315))
 						.release().perform();
 			}
 		}
-//		(new TouchAction(driver)).press(PointOption.point(654, 1716)).moveTo(PointOption.point(563, 304)).release().perform();
-//		(new TouchAction(driver)).press(PointOption.point(526, 1698)).moveTo(PointOption.point(535, 827)).release().perform();
 	}
 
 	public void preencheCampoEstado(String estado) {
@@ -170,5 +169,4 @@ public class Register_Page {
 	public void submeteCadastro() {
 		botaoRegistrarCadastro().click();
 	}
-
 }
