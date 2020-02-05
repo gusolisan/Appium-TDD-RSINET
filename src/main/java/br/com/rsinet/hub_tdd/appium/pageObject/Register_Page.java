@@ -8,10 +8,10 @@ import io.appium.java_client.touch.offset.PointOption;
 
 public class Register_Page {
 
-	private AndroidDriver<WebElement> driver;
+	private AndroidDriver driver;
 	private TouchAction action;
 
-	public Register_Page(AndroidDriver<WebElement> driver) {
+	public Register_Page(AndroidDriver driver) {
 		this.driver = driver;
 		action = new TouchAction(driver);
 	}

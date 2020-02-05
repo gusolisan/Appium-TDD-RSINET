@@ -24,7 +24,7 @@ public class AndroidDriverFactory {
 			caps.setCapability("platformName", "Android");
 			caps.setCapability("appPackage", "com.Advantage.aShopping");
 			caps.setCapability("appActivity", ".SplashActivity");
-			
+
 			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		}

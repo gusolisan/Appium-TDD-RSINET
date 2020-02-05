@@ -1,6 +1,6 @@
 package br.com.rsinet.hub_tdd.appium.utils;
 
-public class MassaDeDados_Manager {
+public class MassaDeDados {
 
 	private final String excelPath = "C:\\My Workspace\\AppiumTDD\\src\\main\\java\\br\\com\\rsinet\\hub_tdd\\appium\\dadosParaTeste\\DadosParaTeste.xlsx";
 	private final String sheetCadastro = "Cadastro";

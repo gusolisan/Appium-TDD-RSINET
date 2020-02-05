@@ -6,9 +6,9 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class Home_Page {
 
-	private AndroidDriver<WebElement> driver;
+	private AndroidDriver driver;
 
-	public Home_Page(AndroidDriver<WebElement> driver) {
+	public Home_Page(AndroidDriver driver) {
 		this.driver = driver;
 	}
 
@@ -61,7 +61,13 @@ public class Home_Page {
 		confirmaDeslog().click();
 	}
 
+//	Métodos para asserts:
+
 	public boolean usuarioEstaLogado() {
 		return botaoDeslogar().isEnabled();
+	}
+
+	public boolean paginaDeLoginContinuaAtiva() {
+		return menuDoUsuario().isEnabled();
 	}
 }

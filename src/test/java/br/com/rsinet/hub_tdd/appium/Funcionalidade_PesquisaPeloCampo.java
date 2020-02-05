@@ -8,7 +8,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.xml.XmlTest;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -20,7 +19,7 @@ import br.com.rsinet.hub_tdd.appium.utils.ExcelUtils;
 import br.com.rsinet.hub_tdd.appium.utils.MassaDeDados;
 import br.com.rsinet.hub_tdd.appium.utils.Relatorio;
 
-public class Funcionalidade_Cadastro {
+public class Funcionalidade_PesquisaPeloCampo {
 
 	private AndroidDriverFactory driver;
 	private MassaDeDados massaDeDados;
@@ -34,7 +33,7 @@ public class Funcionalidade_Cadastro {
 	@BeforeTest
 	public void inicializaRelatorio() {
 		report = Relatorio.setExtent("Relatorio de automacao de testes em ambiente mobile",
-				"Funcionalidade de Cadastro");
+				"Funcionalidade de Pesquisa pelo Campo");
 	}
 
 	@BeforeMethod
