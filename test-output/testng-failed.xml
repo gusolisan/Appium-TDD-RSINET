@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro">
+      <class name="br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo">
         <methods>
-          <include name="naoDeveCadastrarUsuarioExistente"/>
-          <include name="testConfigsOff"/>
           <include name="testConfigsOn"/>
+          <include name="naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa"/>
+          <include name="finalizaRelatorio"/>
+          <include name="testConfigsOff"/>
+          <include name="inicializaRelatorio"/>
         </methods>
-      </class> <!-- br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro -->
+      </class> <!-- br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

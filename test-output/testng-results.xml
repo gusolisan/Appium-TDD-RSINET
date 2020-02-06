@@ -2,58 +2,58 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="72712" started-at="2020-02-05T15:39:32 BRT" finished-at="2020-02-05T15:40:45 BRT">
+  <suite name="Default suite" duration-ms="25053" started-at="2020-02-06T14:47:48 BRT" finished-at="2020-02-06T14:48:13 BRT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="72712" started-at="2020-02-05T15:39:32 BRT" finished-at="2020-02-05T15:40:45 BRT">
-      <class name="br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro">
-        <test-method status="PASS" signature="inicializaRelatorio()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="inicializaRelatorio" is-config="true" duration-ms="88" started-at="2020-02-05T15:39:32 BRT" finished-at="2020-02-05T15:39:32 BRT">
+    <test name="Default test" duration-ms="25053" started-at="2020-02-06T14:47:48 BRT" finished-at="2020-02-06T14:48:13 BRT">
+      <class name="br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo">
+        <test-method status="PASS" signature="inicializaRelatorio()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="inicializaRelatorio" is-config="true" duration-ms="84" started-at="2020-02-06T14:47:48 BRT" finished-at="2020-02-06T14:47:48 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializaRelatorio -->
-        <test-method status="PASS" signature="testConfigsOn()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="testConfigsOn" is-config="true" duration-ms="9629" started-at="2020-02-05T15:39:33 BRT" finished-at="2020-02-05T15:39:42 BRT">
+        <test-method status="PASS" signature="testConfigsOn()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="testConfigsOn" is-config="true" duration-ms="8827" started-at="2020-02-06T14:47:48 BRT" finished-at="2020-02-06T14:47:57 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testConfigsOn -->
-        <test-method status="PASS" signature="deveCadastrarNovoUsuario()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="deveCadastrarNovoUsuario" duration-ms="26009" started-at="2020-02-05T15:39:42 BRT" finished-at="2020-02-05T15:40:08 BRT">
+        <test-method status="PASS" signature="deveEncontrarProdutoExistentePelaBarraDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="deveEncontrarProdutoExistentePelaBarraDePesquisa" duration-ms="3525" started-at="2020-02-06T14:47:57 BRT" finished-at="2020-02-06T14:48:00 BRT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deveCadastrarNovoUsuario -->
-        <test-method status="PASS" signature="testConfigsOff(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="testConfigsOff" is-config="true" duration-ms="981" started-at="2020-02-05T15:40:08 BRT" finished-at="2020-02-05T15:40:09 BRT">
+        </test-method> <!-- deveEncontrarProdutoExistentePelaBarraDePesquisa -->
+        <test-method status="PASS" signature="testConfigsOff(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="testConfigsOff" is-config="true" duration-ms="848" started-at="2020-02-06T14:48:00 BRT" finished-at="2020-02-06T14:48:01 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deveCadastrarNovoUsuario status=SUCCESS method=Funcionalidade_Cadastro.deveCadastrarNovoUsuario()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5] output={null}]]]>
+                <![CDATA[[TestResult name=deveEncontrarProdutoExistentePelaBarraDePesquisa status=SUCCESS method=Funcionalidade_PesquisaPeloCampo.deveEncontrarProdutoExistentePelaBarraDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testConfigsOff -->
-        <test-method status="PASS" signature="testConfigsOn()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="testConfigsOn" is-config="true" duration-ms="7260" started-at="2020-02-05T15:40:09 BRT" finished-at="2020-02-05T15:40:16 BRT">
+        <test-method status="PASS" signature="testConfigsOn()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="testConfigsOn" is-config="true" duration-ms="7229" started-at="2020-02-06T14:48:01 BRT" finished-at="2020-02-06T14:48:08 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testConfigsOn -->
-        <test-method status="PASS" signature="naoDeveCadastrarUsuarioExistente()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="naoDeveCadastrarUsuarioExistente" duration-ms="27473" started-at="2020-02-05T15:40:16 BRT" finished-at="2020-02-05T15:40:44 BRT">
+        <test-method status="PASS" signature="naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa" duration-ms="3340" started-at="2020-02-06T14:48:08 BRT" finished-at="2020-02-06T14:48:12 BRT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- naoDeveCadastrarUsuarioExistente -->
-        <test-method status="PASS" signature="testConfigsOff(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="testConfigsOff" is-config="true" duration-ms="826" started-at="2020-02-05T15:40:44 BRT" finished-at="2020-02-05T15:40:45 BRT">
+        </test-method> <!-- naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa -->
+        <test-method status="PASS" signature="testConfigsOff(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="testConfigsOff" is-config="true" duration-ms="861" started-at="2020-02-06T14:48:12 BRT" finished-at="2020-02-06T14:48:13 BRT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=naoDeveCadastrarUsuarioExistente status=SUCCESS method=Funcionalidade_Cadastro.naoDeveCadastrarUsuarioExistente()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5] output={null}]]]>
+                <![CDATA[[TestResult name=naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa status=SUCCESS method=Funcionalidade_PesquisaPeloCampo.naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testConfigsOff -->
-        <test-method status="PASS" signature="finalizaRelatorio()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro@1563da5]" name="finalizaRelatorio" is-config="true" duration-ms="419" started-at="2020-02-05T15:40:45 BRT" finished-at="2020-02-05T15:40:45 BRT">
+        <test-method status="PASS" signature="finalizaRelatorio()[pri:0, instance:br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo@1563da5]" name="finalizaRelatorio" is-config="true" duration-ms="310" started-at="2020-02-06T14:48:13 BRT" finished-at="2020-02-06T14:48:13 BRT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finalizaRelatorio -->
-      </class> <!-- br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro -->
+      </class> <!-- br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
