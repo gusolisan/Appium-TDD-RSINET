@@ -8,13 +8,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.xml.XmlTest;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.hub_tdd.appium.pageObject.Home_Page;
-import br.com.rsinet.hub_tdd.appium.pageObject.Register_Page;
+import br.com.rsinet.hub_tdd.appium.screenObject.Home_Screen;
+import br.com.rsinet.hub_tdd.appium.screenObject.Register_Screen;
 import br.com.rsinet.hub_tdd.appium.utils.AndroidDriverFactory;
 import br.com.rsinet.hub_tdd.appium.utils.ExcelUtils;
 import br.com.rsinet.hub_tdd.appium.utils.MassaDeDados;
@@ -24,17 +23,17 @@ public class Funcionalidade_Cadastro {
 
 	private AndroidDriverFactory driver;
 	private MassaDeDados massaDeDados;
-	private Home_Page homePage;
-	private Register_Page registerPage;
-	private ExtentReports report;
+	private Home_Screen homeScreen;
+	private Register_Screen registerScreen;
 	private ExtentTest cadastroPositivo;
 	private ExtentTest cadastroNegativo;
+	private ExtentReports report;
 	private String teste;
 
 	@BeforeTest
 	public void inicializaRelatorio() {
 		report = Relatorio.setExtent("Relatorio de automacao de testes em ambiente mobile",
-				"Funcionalidade de Cadastro");
+				"Funcionalidade de Pesquisa pelo Campo");
 	}
 
 	@BeforeMethod
@@ -42,8 +41,8 @@ public class Funcionalidade_Cadastro {
 		driver = new AndroidDriverFactory();
 		driver.driverOn();
 
-		homePage = new Home_Page(driver.driverOn());
-		registerPage = new Register_Page(driver.driverOn());
+		homeScreen = new Home_Screen(driver.driverOn());
+		registerScreen = new Register_Screen(driver.driverOn());
 
 		massaDeDados = new MassaDeDados();
 
@@ -74,46 +73,44 @@ public class Funcionalidade_Cadastro {
 		int indexDeUsuario = 1;
 
 		for (int i = 1; i <= indexDeUsuario; i++) {
-			homePage.clicaMenu();
+			homeScreen.clicaMenu();
 			cadastroPositivo.createNode("Menu do aplicativo acessado");
 
-			homePage.clicaMenuDoUsuario();
-			cadastroPositivo.createNode("Pagina de login acessado");
+			homeScreen.clicaMenuDoUsuario();
+			cadastroPositivo.createNode("Tela de login acessada");
 
-			homePage.clicaBotaoDeCadastro();
-			cadastroPositivo.createNode("Pagina de cadastro acessado");
+			homeScreen.clicaBotaoDeCadastro();
+			cadastroPositivo.createNode("Tela de cadastro acessada");
 
-			registerPage.preencheCampoUsuario(massaDeDados.usuario(i));
-			registerPage.preencheCampoEmail(massaDeDados.email(i));
-			registerPage.preencheCampoSenha(massaDeDados.senha(i));
-			registerPage.preencheCampoConfirmaSenha(massaDeDados.senha(i));
-			registerPage.preencheCampoNome(massaDeDados.nome(i));
-			registerPage.preencheCampoSobrenome(massaDeDados.sobrenome(i));
-			registerPage.preencheCampoTelefone(massaDeDados.telefone(i));
+			registerScreen.preencheCampoUsuario(massaDeDados.usuario(i));
+			registerScreen.preencheCampoEmail(massaDeDados.email(i));
+			registerScreen.preencheCampoSenha(massaDeDados.senha(i));
+			registerScreen.preencheCampoConfirmaSenha(massaDeDados.senha(i));
+			registerScreen.preencheCampoNome(massaDeDados.nome(i));
+			registerScreen.preencheCampoSobrenome(massaDeDados.sobrenome(i));
+			registerScreen.preencheCampoTelefone(massaDeDados.telefone(i));
 
-			registerPage.rolarParaPreencherEndereco();
+			registerScreen.rolarParaPreencherEndereco();
 
-			registerPage.selecionaPais(massaDeDados.nacionalidade(i));
-			registerPage.preencheCampoEstado(massaDeDados.estado(i));
-			registerPage.preencheCampoEndereco(massaDeDados.endereco(i));
-			registerPage.preencheCampoCidade(massaDeDados.cidade(i));
-			registerPage.preencheCampoCep(massaDeDados.cep(i));
+			registerScreen.selecionaPais(massaDeDados.nacionalidade(i));
+			registerScreen.preencheCampoEstado(massaDeDados.estado(i));
+			registerScreen.preencheCampoEndereco(massaDeDados.endereco(i));
+			registerScreen.preencheCampoCidade(massaDeDados.cidade(i));
+			registerScreen.preencheCampoCep(massaDeDados.cep(i));
 
-			registerPage.rolarParaSubmeterCadastro();
+			registerScreen.rolarParaSubmeterCadastro();
 
-			registerPage.submeteCadastro();
+			registerScreen.submeteCadastro();
 			cadastroPositivo.createNode("Formulario de cadastro preenchido e submetido");
 
-			Thread.sleep(2000);
-
-			homePage.clicaMenu();
+			homeScreen.clicaMenu();
 			cadastroPositivo.createNode("Nome de usuario aparece no menu do aplicativo");
 
-			assertTrue(homePage.usuarioEstaLogado());
+			assertTrue(homeScreen.usuarioEstaLogado());
 
 			if (i < indexDeUsuario) {
-				homePage.clicaBotaoDeslogar();
-				homePage.clicaConfirmaDeslog();
+				homeScreen.clicaBotaoDeslogar();
+				homeScreen.clicaConfirmaDeslog();
 			}
 		}
 	}
@@ -126,40 +123,38 @@ public class Funcionalidade_Cadastro {
 
 		int indexDeUsuario = 1;
 
-		homePage.clicaMenu();
+		homeScreen.clicaMenu();
 		cadastroNegativo.createNode("Menu do aplicativo acessado");
 		
-		homePage.clicaMenuDoUsuario();
-		cadastroNegativo.createNode("Pagina de login acessada");
+		homeScreen.clicaMenuDoUsuario();
+		cadastroNegativo.createNode("Tela de login acessada");
 
-		homePage.clicaBotaoDeCadastro();
-		cadastroNegativo.createNode("Pagina de cadastro acessada");
+		homeScreen.clicaBotaoDeCadastro();
+		cadastroNegativo.createNode("Tela de cadastro acessada");
 
-		registerPage.preencheCampoUsuario(massaDeDados.usuario(indexDeUsuario));
-		registerPage.preencheCampoEmail(massaDeDados.email(indexDeUsuario));
-		registerPage.preencheCampoSenha(massaDeDados.senha(indexDeUsuario));
-		registerPage.preencheCampoConfirmaSenha(massaDeDados.senha(indexDeUsuario));
-		registerPage.preencheCampoNome(massaDeDados.nome(indexDeUsuario));
-		registerPage.preencheCampoSobrenome(massaDeDados.sobrenome(indexDeUsuario));
-		registerPage.preencheCampoTelefone(massaDeDados.telefone(indexDeUsuario));
+		registerScreen.preencheCampoUsuario(massaDeDados.usuario(indexDeUsuario));
+		registerScreen.preencheCampoEmail(massaDeDados.email(indexDeUsuario));
+		registerScreen.preencheCampoSenha(massaDeDados.senha(indexDeUsuario));
+		registerScreen.preencheCampoConfirmaSenha(massaDeDados.senha(indexDeUsuario));
+		registerScreen.preencheCampoNome(massaDeDados.nome(indexDeUsuario));
+		registerScreen.preencheCampoSobrenome(massaDeDados.sobrenome(indexDeUsuario));
+		registerScreen.preencheCampoTelefone(massaDeDados.telefone(indexDeUsuario));
 
-		registerPage.rolarParaPreencherEndereco();
+		registerScreen.rolarParaPreencherEndereco();
 
-		registerPage.selecionaPais(massaDeDados.nacionalidade(indexDeUsuario));
-		registerPage.preencheCampoEstado(massaDeDados.estado(indexDeUsuario));
-		registerPage.preencheCampoEndereco(massaDeDados.endereco(indexDeUsuario));
-		registerPage.preencheCampoCidade(massaDeDados.cidade(indexDeUsuario));
-		registerPage.preencheCampoCep(massaDeDados.cep(indexDeUsuario));
+		registerScreen.selecionaPais(massaDeDados.nacionalidade(indexDeUsuario));
+		registerScreen.preencheCampoEstado(massaDeDados.estado(indexDeUsuario));
+		registerScreen.preencheCampoEndereco(massaDeDados.endereco(indexDeUsuario));
+		registerScreen.preencheCampoCidade(massaDeDados.cidade(indexDeUsuario));
+		registerScreen.preencheCampoCep(massaDeDados.cep(indexDeUsuario));
 
-		registerPage.rolarParaSubmeterCadastro();
+		registerScreen.rolarParaSubmeterCadastro();
 
-		registerPage.submeteCadastro();
+		registerScreen.submeteCadastro();
 
-		Thread.sleep(2000);
+		homeScreen.clicaMenu();
+		cadastroNegativo.createNode("Usuario ja existente nao se cadastra novamente");
 
-		homePage.clicaMenu();
-		cadastroNegativo.createNode("Usuario ja existente nao e cadastrado");
-
-		assertTrue(homePage.paginaDeLoginContinuaAtiva());
+		assertTrue(homeScreen.menuDeLoginContinuaAtivo());
 	}
 }

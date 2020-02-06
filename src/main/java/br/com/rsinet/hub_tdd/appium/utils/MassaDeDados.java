@@ -66,4 +66,12 @@ public class MassaDeDados {
 	public String cep(int numeroDoUsuario) throws Exception {
 		return ExcelUtils.getCellData(numeroDoUsuario, 12);
 	}
+
+	public String nomeDoProdutoExistente() throws Exception {
+		return ExcelUtils.getCellData(1, 3);
+	}
+
+	public String nomeDoProdutoInexistente() throws Exception {
+		return ExcelUtils.getCellData(2, 3);
+	}
 }
