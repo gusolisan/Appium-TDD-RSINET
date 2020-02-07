@@ -1,8 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Funcionalidades do App AdvantageOnlineShopping">
-	<test name="Funcionalidade Cadastro">
+	<test
+		name="Funcionalidades Cadastro, Pesquisa de Produto, Pesquisa pelo Campo">
 		<classes>
 			<class
 				name="br.com.rsinet.hub_tdd.appium.Funcionalidade_Cadastro" />
+			<class
+				name="br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaDeProduto" />
+			<class
+				name="br.com.rsinet.hub_tdd.appium.Funcionalidade_PesquisaPeloCampo" />
 		</classes>
 	</test>
 </suite>

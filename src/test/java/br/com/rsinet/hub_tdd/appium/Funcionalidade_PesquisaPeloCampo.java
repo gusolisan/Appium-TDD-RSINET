@@ -21,7 +21,6 @@ import br.com.rsinet.hub_tdd.appium.utils.Relatorio;
 
 public class Funcionalidade_PesquisaPeloCampo {
 
-	private AndroidDriverFactory driver;
 	private MassaDeDados massaDeDados;
 	private Home_Screen homeScreen;
 	private Search_Screen searchScreen;;
@@ -29,11 +28,11 @@ public class Funcionalidade_PesquisaPeloCampo {
 	private ExtentTest pesquisaPositiva;
 	private ExtentTest pesquisaNegativa;
 	private String cenario;
+	private AndroidDriverFactory driver;
 
 	@BeforeTest
 	public void inicializaRelatorio() {
-		report = Relatorio.setExtent("Relatorio de automacao de testes em ambiente mobile",
-				"Funcionalidade de Pesquisa pelo Campo");
+		report = Relatorio.inicializaRelatorio();
 	}
 
 	@BeforeMethod
@@ -51,28 +50,29 @@ public class Funcionalidade_PesquisaPeloCampo {
 
 	@AfterMethod
 	public void testConfigsOff(ITestResult result) throws Exception {
-		if (cenario == "pesquisa positiva") {
-			Relatorio.tearDown(result, pesquisaPositiva, driver.driverOn());
-		} else if (cenario == "pesquisa negativa") {
-			Relatorio.tearDown(result, pesquisaNegativa, driver.driverOn());
+		if (cenario == "Cenario: Pesquisar e encontrar produto existente") {
+			Relatorio.encerraTeste(result, pesquisaPositiva, driver.driverOn());
+		} else if (cenario == "Cenario: Pesquisar e nao encontrar produto inexistente") {
+			Relatorio.encerraTeste(result, pesquisaNegativa, driver.driverOn());
 		}
 		driver.driverOn().resetApp();
 	}
 
 	@AfterTest
 	public void finalizaRelatorio() {
-		Relatorio.fechaRelatorio(report);
+		Relatorio.encerraRelatorio(report);
 		driver.driverOff();
 	}
 
 	@Test
 	public void deveEncontrarProdutoExistentePelaBarraDePesquisa() throws Exception {
-		cenario = "pesquisa positiva";
-		pesquisaPositiva = Relatorio.criaRelatorio("Cenario: Pesquisar e encontrar produto existente");
+		cenario = "Cenario: Pesquisar e encontrar produto existente";
+		
+		pesquisaPositiva = Relatorio.inicializaTeste(cenario);
 
 		homeScreen.insereNoCampoDePesquisa(massaDeDados.nomeDoProdutoExistente());
-		pesquisaPositiva.createNode("Nome do produto inserido no campo de pesquisa");
-
+		pesquisaPositiva.createNode("Insere produto desejado no campo de pesquisa: " + massaDeDados.nomeDoProdutoExistente());
+		
 		homeScreen.clicaBotaoPesquisar();
 		pesquisaPositiva.createNode("Pesquisa executada");
 
@@ -82,12 +82,12 @@ public class Funcionalidade_PesquisaPeloCampo {
 
 	@Test
 	public void naoDeveEncontrarProdutoInexistentePelaBarraDePesquisa() throws Exception {
-		cenario = "pesquisa negativa";
-		pesquisaNegativa = Relatorio.criaRelatorio("Cenario: Pesquisar e nao encontrar produto inexistente");
+		cenario = "Cenario: Pesquisar e nao encontrar produto inexistente";
+		pesquisaNegativa = Relatorio.inicializaTeste(cenario);
 
 		homeScreen.insereNoCampoDePesquisa(massaDeDados.nomeDoProdutoInexistente());
-		pesquisaNegativa.createNode("Nome do produto inexistente inserido no campo de pesquisa");
-
+		pesquisaNegativa.createNode("Insere produto desejado no campo de pesquisa: " + massaDeDados.nomeDoProdutoInexistente());
+		
 		homeScreen.clicaBotaoPesquisar();
 		pesquisaNegativa.createNode("Pesquisa executada");
 

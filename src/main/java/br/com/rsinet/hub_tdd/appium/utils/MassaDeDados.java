@@ -5,7 +5,7 @@ public class MassaDeDados {
 	private final String excelPath = "C:\\My Workspace\\AppiumTDD\\src\\main\\java\\br\\com\\rsinet\\hub_tdd\\appium\\dadosParaTeste\\DadosParaTeste.xlsx";
 	private final String sheetCadastro = "Cadastro";
 	private final String sheetLupa = "Pesquisar pela barra";
-	private final String sheetPesquisa = "Pesquisar pela pagina";
+	private final String sheetPesquisa = "Pesquisa pela tela";
 
 	public String getExcelPath() {
 		return excelPath;
@@ -72,6 +72,14 @@ public class MassaDeDados {
 	}
 
 	public String nomeDoProdutoInexistente() throws Exception {
+		return ExcelUtils.getCellData(2, 3);
+	}
+
+	public String produtoParaTestePositivo() throws Exception {
+		return ExcelUtils.getCellData(1, 3);
+	}
+
+	public String produtoParaTesteNegativo() throws Exception {
 		return ExcelUtils.getCellData(2, 3);
 	}
 }

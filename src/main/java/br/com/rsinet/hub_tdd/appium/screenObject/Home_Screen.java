@@ -78,43 +78,43 @@ public class Home_Screen {
 	}
 
 	public void clicaMenuDoUsuario() {
-		menuDoUsuario().click();
+		wait.until(ExpectedConditions.elementToBeClickable(menuDoUsuario())).click();
 	}
 
 	public void clicaBotaoDeCadastro() {
-		botaoDeCadastro().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoDeCadastro())).click();
 	}
 
 	public void clicaBotaoDeslogar() {
-		botaoDeslogar().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoDeslogar())).click();
 	}
 
 	public void clicaConfirmaDeslog() {
-		confirmaDeslog().click();
+		wait.until(ExpectedConditions.elementToBeClickable(confirmaDeslog())).click();
 	}
 
 	public void insereNoCampoDePesquisa(String pesquisa) {
-		campoDePesquisa().sendKeys(pesquisa);
+		wait.until(ExpectedConditions.elementToBeClickable(campoDePesquisa())).sendKeys(pesquisa);
 	}
 
 	public void clicaBotaoPesquisar() {
-		botaoPesquisar().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoPesquisar())).click();
 	}
 
 	public void clicaBotaoLaptop() {
-		botaoLaptop().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoLaptop())).click();
 	}
 
 	public void clicaBotaoHeadphones() {
-		botaoHeadphones().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoHeadphones())).click();
 	}
 
 	public void clicaBotaoTablets() {
-		botaoTablets().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoTablets())).click();
 	}
 
 	public void clicaBotaoMice() {
-		botaoMice().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoMice())).click();
 	}
 
 //	Métodos para asserts:

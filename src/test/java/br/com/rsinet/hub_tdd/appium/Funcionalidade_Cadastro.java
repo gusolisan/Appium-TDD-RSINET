@@ -28,12 +28,11 @@ public class Funcionalidade_Cadastro {
 	private ExtentTest cadastroPositivo;
 	private ExtentTest cadastroNegativo;
 	private ExtentReports report;
-	private String teste;
+	private String nomeDoTeste;
 
 	@BeforeTest
 	public void inicializaRelatorio() {
-		report = Relatorio.setExtent("Relatorio de automacao de testes em ambiente mobile",
-				"Funcionalidade de Pesquisa pelo Campo");
+		report = Relatorio.inicializaRelatorio();
 	}
 
 	@BeforeMethod
@@ -51,24 +50,24 @@ public class Funcionalidade_Cadastro {
 
 	@AfterMethod
 	public void testConfigsOff(ITestResult result) throws Exception {
-		if (teste == "cadastro positivo") {
-			Relatorio.tearDown(result, cadastroPositivo, driver.driverOn());
-		} else if (teste == "cadastro negativo") {
-			Relatorio.tearDown(result, cadastroNegativo, driver.driverOn());
+		if (nomeDoTeste == "cadastro positivo") {
+			Relatorio.encerraTeste(result, cadastroPositivo, driver.driverOn());
+		} else if (nomeDoTeste == "cadastro negativo") {
+			Relatorio.encerraTeste(result, cadastroNegativo, driver.driverOn());
 		}
-		driver.driverOff();
+		driver.driverOn().resetApp();
 	}
 
 	@AfterTest
 	public void finalizaRelatorio() {
-		Relatorio.fechaRelatorio(report);
+		Relatorio.encerraRelatorio(report);
 	}
 
 	@Test
 	public void deveCadastrarNovoUsuario() throws Exception {
-		teste = "cadastro positivo";
+		nomeDoTeste = "cadastro positivo";
 
-		cadastroPositivo = Relatorio.criaRelatorio("Cenario: Cadastro com sucesso");
+		cadastroPositivo = Relatorio.inicializaTeste("Cenario: Cadastro com sucesso");
 
 		int indexDeUsuario = 1;
 
@@ -103,6 +102,8 @@ public class Funcionalidade_Cadastro {
 			registerScreen.submeteCadastro();
 			cadastroPositivo.createNode("Formulario de cadastro preenchido e submetido");
 
+			Thread.sleep(5000);
+			
 			homeScreen.clicaMenu();
 			cadastroPositivo.createNode("Nome de usuario aparece no menu do aplicativo");
 
@@ -117,9 +118,9 @@ public class Funcionalidade_Cadastro {
 
 	@Test
 	public void naoDeveCadastrarUsuarioExistente() throws Exception {
-		teste = "cadastro negativo";
+		nomeDoTeste = "cadastro negativo";
 
-		cadastroNegativo = Relatorio.criaRelatorio("Cenario: Cadastro com falha");
+		cadastroNegativo = Relatorio.inicializaTeste("Cenario: Cadastro com falha");
 
 		int indexDeUsuario = 1;
 
@@ -132,7 +133,7 @@ public class Funcionalidade_Cadastro {
 		homeScreen.clicaBotaoDeCadastro();
 		cadastroNegativo.createNode("Tela de cadastro acessada");
 
-		registerScreen.preencheCampoUsuario(massaDeDados.usuario(indexDeUsuario));
+		registerScreen.preencheCampoUsuario("awafdaaaaew");
 		registerScreen.preencheCampoEmail(massaDeDados.email(indexDeUsuario));
 		registerScreen.preencheCampoSenha(massaDeDados.senha(indexDeUsuario));
 		registerScreen.preencheCampoConfirmaSenha(massaDeDados.senha(indexDeUsuario));

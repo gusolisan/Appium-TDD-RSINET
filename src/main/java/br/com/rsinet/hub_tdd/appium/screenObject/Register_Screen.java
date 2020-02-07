@@ -1,6 +1,8 @@
 package br.com.rsinet.hub_tdd.appium.screenObject;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -10,10 +12,12 @@ public class Register_Screen {
 
 	private AndroidDriver<WebElement> driver;
 	private TouchAction action;
+	private WebDriverWait wait;
 
 	public Register_Screen(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
 		action = new TouchAction(driver);
+		wait = new WebDriverWait(driver, 5);
 	}
 
 //	elementos da pagina de cadastro do aplicativo:
@@ -97,32 +101,31 @@ public class Register_Screen {
 //	ações dos elementos:
 
 	public void preencheCampoUsuario(String usuario) {
-		nomeUsuario().sendKeys(usuario);
+		wait.until(ExpectedConditions.elementToBeClickable(nomeUsuario())).sendKeys(usuario);
 	}
 
 	public void preencheCampoEmail(String email) {
-		email().sendKeys(email);
+		wait.until(ExpectedConditions.elementToBeClickable(email())).sendKeys(email);
 	}
 
 	public void preencheCampoSenha(String senha) {
-		senha().sendKeys(senha);
+		wait.until(ExpectedConditions.elementToBeClickable(senha())).sendKeys(senha);
 	}
 
 	public void preencheCampoConfirmaSenha(String senha) {
-		confirmaSenha().sendKeys(senha);
+		wait.until(ExpectedConditions.elementToBeClickable(confirmaSenha())).sendKeys(senha);
 	}
 
 	public void preencheCampoNome(String nome) {
-		nome().sendKeys(nome);
+		wait.until(ExpectedConditions.elementToBeClickable(nome())).sendKeys(nome);
 	}
 
 	public void preencheCampoSobrenome(String sobrenome) {
-		sobrenome().sendKeys(sobrenome);
+		wait.until(ExpectedConditions.elementToBeClickable(sobrenome())).sendKeys(sobrenome);
 	}
 
 	public void preencheCampoTelefone(String telefone) {
-		telefone().sendKeys(telefone);
-//		action.press(PointOption.point(961, 1752)).moveTo(PointOption.point(983, 143)).release().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(telefone())).sendKeys(telefone);
 	}
 
 	public void rolarParaPreencherEndereco() {
@@ -130,7 +133,7 @@ public class Register_Screen {
 	}
 
 	public void selecionaPais(String nomeDoPais) {
-		pais().click();
+		wait.until(ExpectedConditions.elementToBeClickable(pais())).click();
 
 		boolean achouPais = false;
 
@@ -147,19 +150,19 @@ public class Register_Screen {
 	}
 
 	public void preencheCampoEstado(String estado) {
-		estado().sendKeys(estado);
+		wait.until(ExpectedConditions.elementToBeClickable(estado())).sendKeys(estado);
 	}
 
 	public void preencheCampoEndereco(String endereco) {
-		endereco().sendKeys(endereco);
+		wait.until(ExpectedConditions.elementToBeClickable(endereco())).sendKeys(endereco);
 	}
 
 	public void preencheCampoCidade(String cidade) {
-		cidade().sendKeys(cidade);
+		wait.until(ExpectedConditions.elementToBeClickable(cidade())).sendKeys(cidade);
 	}
 
 	public void preencheCampoCep(String cep) {
-		cep().sendKeys(cep);
+		wait.until(ExpectedConditions.elementToBeClickable(cep())).sendKeys(cep);
 	}
 
 	public void rolarParaSubmeterCadastro() {
@@ -167,6 +170,6 @@ public class Register_Screen {
 	}
 
 	public void submeteCadastro() {
-		botaoRegistrarCadastro().click();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoRegistrarCadastro())).click();
 	}
 }
